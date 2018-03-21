@@ -1,0 +1,14 @@
+version: '3'
+services:
+  php:
+    build: ./php-fpm
+    container_name: doqnach-urlparserapp_php
+    volumes:
+      - ./url-parser-app:/var/www
+  nginx:
+    build: ./nginx
+    container_name: doqnach-urlparserapp_nginx
+    volumes:
+      - ./url-parser-app:/var/www
+    depends_on:
+      - php

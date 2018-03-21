@@ -1,0 +1,12 @@
+.navbar-inverse {
+	background-color: #212529;
+	color: #fff;
+}
+.navbar-inverse .navbar-brand {
+	color: #dfdfdf;
+}
+.navbar-inverse .navbar-brand:focus,
+.navbar-inverse .navbar-brand:hover {
+	color: #fff;
+	background-color: transparent;
+}

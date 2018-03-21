@@ -1,0 +1,16 @@
+{% extends "base.html.twig" %}
+{% block body %}
+<h1>Home</h1>
+{% for error in errors|default([]) %}
+<div class="alert alert-warning" role="alert">
+    {{ error }}
+</div>
+{% endfor %}
+<form method="post" action="{{ url('app_home') }}">
+    <div class="form-group">
+        <label for="field-urls">URLs (one per line):</label>
+        <textarea class="form-control" id="field-urls" name="urls" rows="10"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{% endblock %}

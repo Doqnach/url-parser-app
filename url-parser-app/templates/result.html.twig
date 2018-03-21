@@ -1,0 +1,31 @@
+{% extends "base.html.twig" %}
+{% block body %}
+    <h1>Result</h1>
+    {% for error in errors|default([]) %}
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
+    {% endfor %}
+    {% for url in urls|default([]) %}
+    <h2>{{ url.url }}</h2>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">Component</th>
+            <th scope="col">Value</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for component in url.components if component.value is not null %}
+        <tr>
+            <th scope="row">{{ component.name }}</th>
+            <td>{{ component.value }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endfor %}
+    <p>
+        <a class="btn btw-primary" href="{{ url('app_home') }}">Back</a>
+    </p>
+{% endblock %}
